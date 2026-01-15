@@ -7,6 +7,7 @@ const Cart = ({ cart, onRemoveFromCart, onCheckout }) => {
         <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', color: '#2c3e50' }}>Shopping Cart</h2>
         <p style={{ color: '#7f8c8d' }}>Review your items and proceed to checkout</p>
       </div>
+      
       {cart.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '3rem', color: '#7f8c8d' }}>
           <h3>Your cart is empty</h3>
