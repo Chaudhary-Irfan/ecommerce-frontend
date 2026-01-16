@@ -11,16 +11,21 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cart, setCart] = useState([]);
   const [showOrderModal, setShowOrderModal] = useState(false);
+  const [notification, setNotification] = useState('');
 
   const addToCart = (product) => {
     const existingItem = cart.find(item => item.id === product.id);
     if (existingItem) {
+      const newQuantity = existingItem.quantity + 1;
       setCart(cart.map(item =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id ? { ...item, quantity: newQuantity } : item
       ));
+      setNotification(`${product.name} added to cart (count ${newQuantity})`);
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
+      setNotification(`${product.name} added to cart`);
     }
+    setTimeout(() => setNotification(''), 3000);
   };
 
   const removeFromCart = (productId) => {
@@ -88,6 +93,7 @@ function App() {
           <button onClick={handleViewCart}>🛒 Cart ({cart.length})</button>
         </div>
       </header>
+      {notification && <div className="notification">{notification}</div>}
       <main>
         {renderView()}
         {showOrderModal && (

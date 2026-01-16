@@ -36,6 +36,7 @@ const headerStyle = {
 
 const bodyStyle = {
   padding: '1.5rem',
+  color: 'white',
 };
 
 const footerStyle = {
@@ -58,7 +59,7 @@ const labelStyle = {
 };
 
 const inputStyle = {
-  width: '100%',
+  width: '95%',
   padding: '0.85rem',
   border: '2px solid #e1e8ed',
   borderRadius: '8px',
@@ -138,12 +139,12 @@ const OrderModal = ({ cart, onClose, onOrderSuccess }) => {
             >
               <h4 style={{ margin: '0 0 0.75rem 0', color: '#2c3e50' }}>Order Summary</h4>
               {cart.map((item) => (
-                <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.25rem 0' }}>
+                <div key={item.id} style={{ display: 'flex', color: 'black', justifyContent: 'space-between', padding: '0.25rem 0' }}>
                   <span>{item.name} × {item.quantity}</span>
                   <span>${(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.75rem', borderTop: '2px solid #667eea', paddingTop: '0.75rem', fontWeight: 700 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between',color: 'black', marginTop: '0.75rem', borderTop: '2px solid #667eea', paddingTop: '0.75rem', fontWeight: 700 }}>
                 <span>Total</span>
                 <span style={{ color: '#27ae60' }}>${total.toFixed(2)}</span>
               </div>
